@@ -46,7 +46,7 @@ public class SelectionSort{
                     id_min = k;
                 }
             }
-    
+        
             if (id_min != i) {
             Utility.swap(arr, i, id_min);
             // if the max was sitting at i, its index just moved to idMin
@@ -65,21 +65,31 @@ public class SelectionSort{
 	
 	public static void runSelectionSort(int choice) {
         //example array
-        if(!(choice == 1 || choice == 2)){
+        if(!(choice != 1 || choice != 2)){
             System.out.println("Invalid option. Try again."); 
             return;
         }
 
         //create object and call the sort method
-        long startTime = System.nanoTime(); // start timer
-
-        if(choice == 1) selectionSortUnoptimized(arr);   
-        else selectionSortOptimized(arr);
-
-        long endTime = System.nanoTime(); // end timer
-        long duration = endTime - startTime; // calculate elapsed time
-        System.out.println("Execution time: " + duration + " nanoseconds");
-        System.out.println("Execution time: " + (duration / 1_000_000.0) + " milliseconds");
+        if(choice == 1)
+        {
+            long startTime = System.nanoTime(); // start timer
+            selectionSortUnoptimized(arr);  
+            long endTime = System.nanoTime(); // end timer
+            long duration = endTime - startTime; // calculate elapsed time
+            System.out.println("Execution time: " + duration + " nanoseconds");
+            System.out.println("Execution time: " + (duration / 1_000_000.0) + " milliseconds");
+            
+        } 
+        else if (choice == 2)
+        {
+            long startTime = System.nanoTime(); // start timer
+            selectionSortOptimized(arr);
+            long endTime = System.nanoTime(); // end timer
+            long duration = endTime - startTime; // calculate elapsed time
+            System.out.println("Execution time: " + duration + " nanoseconds");
+            System.out.println("Execution time: " + (duration / 1_000_000.0) + " milliseconds");            
+        }
 
         System.out.println("Final sorted array:");
         Utility.printArray(arr);
