@@ -61,30 +61,28 @@ public class Knapsack {
     {
         System.out.println("Please enter the capacity that the knapsack can contain: ");
 
-
-
-        if(!(choice == 1 || choice ==2)){
+        if(!(choice == 1 || choice == 2)){
             System.out.println("Invalid option. Try again."); 
             return;
         }
 
         Scanner scanner = new Scanner(System.in);
-            int capacity = Integer.parseInt(scanner.nextLine());
+        int capacity = Integer.parseInt(scanner.nextLine());
 
-            int [] weights = new int[capacity];
-            int [] values = new int[capacity];
+        int [] weights = new int[capacity];
+        int [] values = new int[capacity];
 
-            System.out.println("Please enter the weights: ");
-            for (int i = 0; i < capacity; i++)
-            {
-                weights[i] = scanner.nextInt();
-            }
+        System.out.println("Please enter the weights: ");
+        for (int i = 0; i < capacity; i++)
+        {
+            weights[i] = scanner.nextInt();
+        }
 
-            System.out.println("Please enter the values: ");
-            for (int i = 0; i < capacity; i++)
-            {
-                values[i] = scanner.nextInt();
-            }
+        System.out.println("Please enter the values: ");
+        for (int i = 0; i < capacity; i++)
+        {
+            values[i] = scanner.nextInt();
+        }
 
         long startTime = System.nanoTime(); // start timer
         

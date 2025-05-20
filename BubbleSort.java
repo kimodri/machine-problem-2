@@ -46,32 +46,20 @@ public class BubbleSort {
     }
 
     public static void runBubbleSort(int choice) {
-        if(!(choice == 1 || choice ==2)){
+        if(!(choice == 1 || choice == 2)){
             System.out.println("Invalid option. Try again."); 
             return;
         }
-        
-        System.out.println("Original array:");
-        Utility.printArray(arr);
 
-        if(choice == 1)
-        {
-            long startTime = System.nanoTime(); // start timer
-            bubbleSort(arr);
-            long endTime = System.nanoTime(); // end timer
-            long duration = endTime - startTime; // calculate elapsed time
-            System.out.println("Execution time: " + duration + " nanoseconds");
-            System.out.println("Execution time: " + (duration / 1_000_000.0) + " milliseconds");
-        } 
-        else if(choice == 2)
-        {
-            long startTime = System.nanoTime(); // start timer
-            optimizedBubbleSort(arr);
-            long endTime = System.nanoTime(); // end timer
-            long duration = endTime - startTime; // calculate elapsed time
-            System.out.println("Execution time: " + duration + " nanoseconds");
-            System.out.println("Execution time: " + (duration / 1_000_000.0) + " milliseconds");    
-        }
+        long startTime = System.nanoTime(); // start timer
+
+        if(choice == 1) bubbleSort(arr);
+        else optimizedBubbleSort(arr);
+
+        long endTime = System.nanoTime(); // end timer
+        long duration = endTime - startTime; // calculate elapsed time
+        System.out.println("Execution time: " + duration + " nanoseconds");
+        System.out.println("Execution time: " + (duration / 1_000_000.0) + " milliseconds");
 
         // Print the sorted array
         System.out.println("Final sorted array:");
