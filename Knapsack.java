@@ -95,7 +95,7 @@ public class Knapsack {
             System.out.println("Number of recursive calls (Brute Force): " + calls);
             System.out.println("Maximum value in knapsack (Brute Force): " + maxValue);  
         } 
-        else if(choice == 2)
+        else
         {
             int maxValue = knapsackDP(weights, values, capacity);
 

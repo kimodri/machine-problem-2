@@ -74,7 +74,7 @@ public class SelectionSort{
         long startTime = System.nanoTime(); // start timer
 
         if(choice == 1) selectionSortUnoptimized(arr);   
-        else if (choice == 2) selectionSortOptimized(arr);
+        else selectionSortOptimized(arr);
 
         long endTime = System.nanoTime(); // end timer
         long duration = endTime - startTime; // calculate elapsed time
