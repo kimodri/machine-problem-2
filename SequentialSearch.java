@@ -46,7 +46,7 @@ public class SequentialSearch {
             return;
         }
 
-        System.out.print("Enter number to search (0 - 9999): ");
+        System.out.print("Enter number to search (0 - 999): ");
         int searchItem = Integer.parseInt(scanner.nextLine());
 
         int searchIndex;
