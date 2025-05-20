@@ -1,8 +1,7 @@
 public class SelectionSort{
 
-    private static int[] arr = Utility.randomizeArray("assets\\random_numbers.txt");
-	static void selectionSortUnoptimized(int array[]) {
-		int size = array.length; //get the size of the array
+	static void selectionSortUnoptimized(int arr[]) {
+		int size = arr.length; //get the size of the array
 
         //outer loop controls the boundary between sorted and unsorted parts
 		for(int i=0; i<size-1; i++) {
@@ -12,19 +11,19 @@ public class SelectionSort{
             //inner loop searches for the actual smallest element in the unsorted part
             //this is the brute force part: it checks every remaining element
             for(int j = i + 1; j < size; j++) {
-                if(array[j] < array[minIndex]) {
+                if(arr[j] < arr[minIndex]) {
                     minIndex = j; //update the smallest element found
                 }
             }
 		
             //swap the smallest found element with the first unsorted element
-            int temp = array[minIndex];
-            array[minIndex] = array[i];
-            array[i] = temp;
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
         }
 	}
-    static void selectionSortOptimized(int array[]) {
-        int size = array.length;
+    static void selectionSortOptimized(int arr[]) {
+        int size = arr.length;
         
         for (int i = 0, j = size - 1; i < j; i++, j--)
         {
@@ -75,6 +74,7 @@ public class SelectionSort{
 	
 	public static void runSelectionSort(int choice) {
         //example array
+        int[] arr = Utility.randomizeArray("assets\\random_numbers.txt");
         if(!(choice != 1 || choice != 2)){
             System.out.println("Invalid option. Try again."); 
             return;
