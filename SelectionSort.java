@@ -46,8 +46,8 @@ public class SelectionSort{
                     id_min = k;
                 }
             }
-
-             if (id_min != i) {
+    
+            if (id_min != i) {
             Utility.swap(arr, i, id_min);
             // if the max was sitting at i, its index just moved to idMin
             if (id_max == i) {
@@ -55,7 +55,7 @@ public class SelectionSort{
             }
         }
 
-            // 2) swap the max into position j, but only if needed
+            // swap the max into position j, but only if needed
             if (id_max != j) {
                 Utility.swap(arr, j, id_max);
             }
