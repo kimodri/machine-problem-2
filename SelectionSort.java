@@ -25,6 +25,7 @@ public class SelectionSort{
 	}
     static void selectionSortOptimized(int array[]) {
         int size = array.length;
+        
         for (int i = 0, j = size - 1; i < j; i++, j--)
         {
             // Assume that the minimum and maximum are at the current index
@@ -43,7 +44,7 @@ public class SelectionSort{
                     max = arr[k];
                     id_max = k;
                 }
-                
+
                 // ... or min
                 else if (arr[k] < min)
                 {
@@ -52,7 +53,8 @@ public class SelectionSort{
                 }
             }
         
-            // Swap the minimum element with the element at index i only if they are not 
+            // Swap the minimum element with the element at index i 
+            // only if they are not 
             // already in the correct place
             if (id_min != i) {
             Utility.swap(arr, i, id_min);
@@ -65,7 +67,7 @@ public class SelectionSort{
 
             // swap the max into position j, but only if needed
             if (id_max != j) {
-                Utility.swap(arr, j, id_max);
+                Utility.swap(arr, j, id_max); 
             }
         }
     }
