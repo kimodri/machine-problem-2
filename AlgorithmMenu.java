@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 public class AlgorithmMenu {
 
     static Scanner scanner = new Scanner(System.in);
