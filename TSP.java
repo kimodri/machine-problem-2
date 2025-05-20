@@ -1,3 +1,10 @@
+import java.util.Scanner; //Import scanner for user input
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class TSP {
     static float bestTourDst;
     static int[] bestTourIndices;
@@ -122,6 +129,51 @@ public class TSP {
         System.out.println();
         System.out.println("Optimized evaluations: " + optimizedCount);
     }
+	
+	public static float[][] readMatrixFromCSV(String filename) {
+		List<float[]> matrixList = new ArrayList<>();
+		try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+			String line;
+			while ((line = br.readLine()) != null) {
+				String[] values = line.split(",");
+				float[] row = new float[values.length];
+				for (int i = 0; i < values.length; i++) {
+					row[i] = Float.parseFloat(values[i].trim());
+				}
+				matrixList.add(row);
+			}
+		} catch (IOException e) {
+			System.out.println("Error reading CSV file: " + e.getMessage());
+			return null;
+		}
+		return matrixList.toArray(new float[0][]);
+	}
+
+	public static void runTSP(int choice) {
+		String filePath = "assets/matrix.csv";  // Path to your CSV file
+		float[][] matrix = readMatrixFromCSV(filePath);
+
+		if (matrix == null) {
+			System.out.println("Failed to read the matrix from file.");
+			return;
+		}
+
+		if (!(choice == 1 || choice == 2)) {
+			System.out.println("Invalid option. Try again.");
+			return;
+		}
+
+		long startTime = System.nanoTime();
+
+		if (choice == 1) solveUnoptimized(matrix);
+		else solveOptimized(matrix);
+
+		long endTime = System.nanoTime();
+		long duration = endTime - startTime;
+		System.out.println("Execution time: " + duration + " nanoseconds");
+		System.out.println("Execution time: " + (duration / 1_000_000.0) + " milliseconds");
+	}
+
 
     // Test example
     public static void main(String[] args) {

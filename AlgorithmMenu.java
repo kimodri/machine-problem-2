@@ -34,6 +34,7 @@ public class AlgorithmMenu {
                     System.out.println("=== Travelling Salesman Problem ===");
                     printChoice();
                     choice = scanner.nextInt();
+					TSP.runTSP(choice);
                     break;
                 case 5:
                     System.out.println("=== Knapsack Problem ===");
