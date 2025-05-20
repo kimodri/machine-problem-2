@@ -27,19 +27,24 @@ public class SelectionSort{
         int size = array.length;
         for (int i = 0, j = size - 1; i < j; i++, j--)
         {
+            // Assume that the minimum and maximum are at the current index
             int min = arr[i];
             int max = arr[i];
             
             int id_min = i;
             int id_max = i;
             
+            // Inner loop : search the unsorted subarray for min and max
             for (int k = i + 1; k <= j; k++)
             {
+                // Update max
                 if (arr[k] > max)
                 {
                     max = arr[k];
                     id_max = k;
                 }
+                
+                // ... or min
                 else if (arr[k] < min)
                 {
                     min = arr[k];
@@ -47,9 +52,12 @@ public class SelectionSort{
                 }
             }
         
+            // Swap the minimum element with the element at index i only if they are not 
+            // already in the correct place
             if (id_min != i) {
             Utility.swap(arr, i, id_min);
-            // if the max was sitting at i, its index just moved to idMin
+
+            // if the max was sitting at i, its index just moved to id_min
             if (id_max == i) {
                 id_max = id_min;
             }
