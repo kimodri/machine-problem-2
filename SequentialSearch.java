@@ -24,7 +24,9 @@ public class SequentialSearch {
         int first = 0, last = arr.length - 1; //Initialized variable of both ends for iterations
         while(first <= last){ //Loop will stop until it reaches the middle of the array.
             count++;//Increments to know how many iterations needed to find the target.
-            if(search == arr[first] || search == arr[last]){//Checks if search targets matches the first or last index.
+
+            //Checks if search targets matches the first or last index.
+            if(search == arr[first] || search == arr[last]){
                 if(search == arr[first]){   
                     return first; //Return first variable if found at this index
                 }else{
@@ -41,7 +43,7 @@ public class SequentialSearch {
         Scanner scanner = new Scanner(System.in);
 
         //If invalid choice
-        if(!(choice == 1 || choice ==2)){
+        if(!(choice == 1 || choice == 2)){
             System.out.println("Invalid option. Try again."); 
             return;
         }
@@ -50,23 +52,15 @@ public class SequentialSearch {
         int searchItem = Integer.parseInt(scanner.nextLine());
 
         int searchIndex;
-        if(choice == 1){
-            long startTime = System.nanoTime(); // start timer
-            searchIndex = searchTraditional(arr, searchItem, size);
-            long endTime = System.nanoTime(); // end timer
-            long duration = endTime - startTime; // calculate elapsed time
-            System.out.println("Execution time: " + duration + " nanoseconds");
-            System.out.println("Execution time: " + (duration / 1_000_000.0) + " milliseconds");
-            
-        }else{
-            long startTime = System.nanoTime(); // start timer
-            searchIndex = searchOptimized(arr, searchItem, size);
-            long endTime = System.nanoTime(); // end timer
-            long duration = endTime - startTime; // calculate elapsed time
-            System.out.println("Execution time: " + duration + " nanoseconds");
-            System.out.println("Execution time: " + (duration / 1_000_000.0) + " milliseconds");
-            
-        }
+        long startTime = System.nanoTime(); // start timer
+        
+        if(choice == 1) searchIndex = searchTraditional(arr, searchItem, size);
+        else searchIndex = searchOptimized(arr, searchItem, size);
+
+        long endTime = System.nanoTime(); // end timer
+        long duration = endTime - startTime; // calculate elapsed time
+        System.out.println("Execution time: " + duration + " nanoseconds");
+        System.out.println("Execution time: " + (duration / 1_000_000.0) + " milliseconds");
 
         if(searchIndex != -1){//Outputs the target/search index if found
             System.out.println(searchItem + " is found at index " + searchIndex);
