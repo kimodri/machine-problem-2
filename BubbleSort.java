@@ -7,11 +7,13 @@ public class BubbleSort {
 
         for (i = 0; i < size - 1; i++) {
             for (int j = 0; j < size - i - 1; j++) {
-                Utility.swap(arr, j, j+1);
+                if (arr[j] > arr[j + 1]) {
+                    Utility.swap(arr, j, j+1);
             }
         }
 
         System.out.println("Number of Passes : " + i);
+    }
     }
 
     public static void optimizedBubbleSort(int[] arr) {
