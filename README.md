@@ -2,7 +2,8 @@
 
 # Walang gagalaw sa main branch please, gawa muna bago and then create a pull request
 
-Installation guide:
+Installation guide: 
+Video Tutorial Link: https://drive.google.com/file/d/1OzzcRO6O2Au7KlJI5QmEScNFLluL_pDj/view?usp=sharing
 
 Installing with Installer
 1. Run the installer named "AlgorithmApp.exe" which can be downloaded from https://drive.usercontent.google.com/download?id=1Nehkl7zqq2V6ZhYfhxur6NfysCixQXuV&export=download&authuser=0
